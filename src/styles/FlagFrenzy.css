@@ -11,10 +11,13 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 100px); /* Adjust height to account for header */
   width: 100%;
   position: relative;
+  padding-top: 80px; /* Add padding equal to header height */
+  box-sizing: border-box;
 }
+
 
 /* Centered Quiz Container */
 .flag-frenzy-container {
@@ -116,3 +119,14 @@ body, html {
   background-color: #f44336;
   color: white;
 }
+
+@media (max-width: 768px) {
+  .flag-frenzy-wrapper {
+    height: auto;
+    min-height: calc(100vh - 10px);
+    padding: 100px 16px 40px;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
