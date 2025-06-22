@@ -22,12 +22,21 @@ a:hover {
   color: #535bf2;
 }
 
-body {
+/* ✅ GLOBAL CENTERING */
+html, body, #root {
   margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
   display: flex;
-  place-items: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+/* Optional fallback if a component overrides it */
+body {
   min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -59,9 +68,11 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
