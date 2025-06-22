@@ -10,34 +10,101 @@
   justify-content: space-between;
   align-items: center;
   background-color: #3498db;
-  color: white;
+  color: rgb(0, 0, 0);
+  font-weight: bold; /* ✅ Correct bold text */
   padding: 0.8rem 2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex-wrap: nowrap;
+  overflow: hidden;
 }
 
+/* LOGO SECTION */
 .logo-section {
   display: flex;
   align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  z-index: 2;
 }
 
 .logo-img {
   height: 100%;
   max-height: 40px;
   width: auto;
-  transform: scale(1.75); /* 👈 zoom in */
+  transform: scale(1.75);
   transform-origin: left center;
 }
 
 .logo-text {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
 }
 
-/* Theme toggle */
+/* MARQUEE SECTION */
+.message-section {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  min-width: 200px;
+  z-index: 1;
+  position: relative;
+}
+
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+
+  /* Smooth fade to prevent overlap with logo */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 4%,
+    black 12%,
+    black 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 4%,
+    black 12%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.marquee-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 20s linear infinite; /* ✅ Slower scroll */
+  font-size: 1.2rem;
+  font-weight: 500; /* ✅ Bold scroll text */
+  color: black;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* THEME TOGGLE SECTION */
 .theme-toggle {
   display: flex;
   align-items: center;
   gap: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  z-index: 2;
 }
 
 .switch {
@@ -56,7 +123,10 @@
 .slider {
   position: absolute;
   cursor: pointer;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: #ccc;
   border-radius: 24px;
   transition: 0.4s;
@@ -84,9 +154,10 @@ input:checked + .slider:before {
 
 .theme-label {
   font-size: 0.9rem;
+  font-weight: bold;
 }
 
-/* Dark Mode */
+/* DARK MODE STYLING */
 body.dark-mode {
   background-color: #1e1e1e;
   color: #ffffff;
@@ -94,5 +165,36 @@ body.dark-mode {
 
 body.dark-mode .header {
   background-color: #111;
-  color: #fff;
+  color: white;
+  font-weight: bold;
+}
+
+body.dark-mode .marquee-text {
+  color: white;
+  font-weight: bold;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .logo-section,
+  .theme-toggle,
+  .message-section {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .logo-img {
+    transform: scale(1.4); /* Optional: slightly smaller on mobile */
+  }
+
+  .marquee-text {
+    font-size: 0.85rem;
+  }
 }

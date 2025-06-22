@@ -16,6 +16,14 @@ const Header: React.FC = () => {
         <span className="logo-text"></span>
       </div>
 
+      <div className="message-section">
+        <div className="marquee-container">
+          <div className="marquee-text">
+            🌍 Welcome to countrIQ — A dedicated quiz platform about countries & flags 🇮🇳!
+          </div>
+        </div>
+      </div>
+
       <div className="theme-toggle">
         <label className="switch">
           <input
