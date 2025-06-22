@@ -1,4 +1,4 @@
-/* Make the full page background white */
+/* Full-page white background */
 body, html {
   margin: 0;
   padding: 0;
@@ -6,27 +6,42 @@ body, html {
   background-color: #ffffff;
 }
 
-/* Wrapper to center everything */
+/* Main wrapper that truly centers the content */
 .flag-frenzy-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100%;
   position: relative;
 }
 
-/* Quiz Progress */
+/* Centered Quiz Container */
+.flag-frenzy-container {
+  background: #fff;
+  padding: 2rem;
+  max-width: 380px;
+  width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+/* Quiz progress */
 .quiz-progress {
   position: absolute;
   top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
   font-weight: bold;
   font-size: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
   color: #333;
+  z-index: 2;
 }
 
-/* Circular timer */
+/* Timer in top-right */
 .timer {
   position: absolute;
   top: 20px;
@@ -35,50 +50,39 @@ body, html {
   height: 60px;
   border-radius: 50%;
   border: 4px solid;
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   font-size: 1rem;
-  background-color: #fff;
+  z-index: 2;
 }
 
 .timer.green {
   border-color: green;
   color: green;
 }
-
 .timer.orange {
   border-color: orange;
   color: orange;
 }
-
 .timer.red {
   border-color: red;
   color: red;
 }
 
-/* Centered container */
-.flag-frenzy-container {
-  max-width: 380px;
-  padding: 2rem;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-/* Flag image */
+/* Flag */
 .flag-image {
   width: 100%;
   max-width: 300px;
   height: auto;
   margin: 20px 0;
-  border-radius: 0; /* No rounded corners */
+  border-radius: 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Options grid */
+/* Options */
 .options-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -86,7 +90,6 @@ body, html {
   margin-top: 1.5rem;
 }
 
-/* Option buttons */
 .option-btn {
   padding: 0.8rem 1rem;
   font-size: 0.95rem;
@@ -95,8 +98,8 @@ body, html {
   border-radius: 8px;
   cursor: pointer;
   background-color: #e6f0ff;
-  color: #000000;
-  transition: all 0.3s ease;
+  color: #000;
+  transition: background-color 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -104,7 +107,6 @@ body, html {
   background-color: #cce0ff;
 }
 
-/* Answer feedback colors */
 .option-btn.correct {
   background-color: #4caf50;
   color: white;
