@@ -1,7 +1,7 @@
 // src/components/HomePage.tsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/Home.css"; // ✅ Import external CSS
+import "../styles/Home.css";
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
@@ -11,13 +11,16 @@ const HomePage: React.FC = () => {
       <h1 className="home-title">🌍 Welcome to CountriQ</h1>
       <p className="home-subtitle">Choose your quiz mode</p>
 
-      <div className="button-group">
-        <button className="home-button" onClick={() => navigate("/flag-frenzy")}>
-          🏁 Flag Frenzy
-        </button>
-        <button className="home-button" onClick={() => navigate("/country-crunch")}>
-          🌐 Country Crunch
-        </button>
+      <div className="card-group">
+        <div className="game-card" onClick={() => navigate("/flag-frenzy")}>
+          <img src="/ff.png" alt="Flag Frenzy" className="card-image" />
+          <h3 className="card-title">🏁 Flag Frenzy</h3>
+        </div>
+
+        <div className="game-card" onClick={() => navigate("/country-crunch")}>
+          <img src="/cc.png" alt="Country Crunch" className="card-image" />
+          <h3 className="card-title">🌐 Country Crunch</h3>
+        </div>
       </div>
     </div>
   );
