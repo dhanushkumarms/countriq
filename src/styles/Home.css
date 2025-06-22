@@ -65,3 +65,7 @@
   font-weight: bold;
   border-top: 1px solid #ddd;
 }
+
+.home-container {
+  padding-top: 100px; /* push below fixed header */
+}

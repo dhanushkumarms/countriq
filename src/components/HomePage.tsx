@@ -8,8 +8,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="home-container">
-      <h1 className="home-title">🌍 Welcome to CountriQ</h1>
-      <p className="home-subtitle">Choose your quiz mode</p>
+
 
       <div className="card-group">
         <div className="game-card" onClick={() => navigate("/flag-frenzy")}>

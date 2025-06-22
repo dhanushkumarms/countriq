@@ -5,7 +5,6 @@ import "../styles/Header.css";
 const Header: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
 
-  // Toggle class on body when theme changes
   useEffect(() => {
     document.body.classList.toggle("dark-mode", darkMode);
   }, [darkMode]);
@@ -14,7 +13,7 @@ const Header: React.FC = () => {
     <header className="header">
       <div className="logo-section">
         <img src="/countriq_logo.png" alt="CountriQ Logo" className="logo-img" />
-        <span className="logo-text">CountriQ</span>
+        <span className="logo-text"></span>
       </div>
 
       <div className="theme-toggle">
