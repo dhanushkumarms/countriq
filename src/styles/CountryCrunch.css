@@ -1,0 +1,112 @@
+.country-crunch-container {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 2rem;
+    text-align: center;
+    background: #f9fcff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+  }
+  
+  .description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #555;
+  }
+  
+  .timer-box {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    display: inline-block;
+    color: white;
+  }
+  
+  .timer-box.green {
+    background-color: green;
+  }
+  
+  .timer-box.orange {
+    background-color: orange;
+  }
+  
+  .timer-box.red {
+    background-color: red;
+  }
+  
+  .chain-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 1.5rem 0;
+  }
+  
+  .slot {
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    font-size: 1rem;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  
+  .slot.correct {
+    border-color: green;
+    background-color: #e7f9e9;
+  }
+  
+  .slot.wrong {
+    border-color: red;
+    background-color: #ffeaea;
+  }
+  
+  .tick {
+    font-size: 1.2rem;
+    margin-left: 10px;
+    border-radius: 50%;
+  }
+  
+  .tick.wrong {
+    color: red;
+  }
+  
+  .input-form {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .country-input {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    flex: 1;
+  }
+  
+  .submit-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover {
+    background-color: #2980b9;
+  }
+  

@@ -1,9 +1,11 @@
 // src/components/Header.tsx
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // ⬅️ Add this
 import "../styles/Header.css";
 
 const Header: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const navigate = useNavigate(); // ⬅️ Initialize navigator
 
   useEffect(() => {
     document.body.classList.toggle("dark-mode", darkMode);
@@ -11,7 +13,7 @@ const Header: React.FC = () => {
 
   return (
     <header className="header">
-      <div className="logo-section">
+      <div className="logo-section" onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
         <img src="/countriq_logo.png" alt="CountriQ Logo" className="logo-img" />
         <span className="logo-text"></span>
       </div>

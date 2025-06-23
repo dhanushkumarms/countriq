@@ -12,7 +12,7 @@ const FlagFrenzy = () => {
   const [selected, setSelected] = useState<string | null>(null);
   const [timer, setTimer] = useState(30);
   const [score, setScore] = useState(0);
-  const [isFinished, setIsFinished] = useState(false); // ✅ New state
+  const [isFinished, setIsFinished] = useState(false);
 
   // Generate new question
   const generateQuestion = () => {
@@ -32,7 +32,7 @@ const FlagFrenzy = () => {
   // Timer countdown
   useEffect(() => {
     if (timer === 0 && selected === null) {
-      handleAnswer(null); // Treat timeout as incorrect answer
+      handleAnswer(null);
       return;
     }
 
@@ -42,14 +42,13 @@ const FlagFrenzy = () => {
     return () => clearInterval(countdown);
   }, [timer, selected]);
 
-  // Initialize or move to next question
+  // Load new question when question number changes
   useEffect(() => {
     if (currentQuestion <= TOTAL_QUESTIONS) {
       generateQuestion();
     }
   }, [currentQuestion]);
 
-  // Determine button color class
   const getColorClass = (option: string) => {
     if (!selected) return "";
     if (option === correctAnswer) return "correct";
@@ -70,16 +69,23 @@ const FlagFrenzy = () => {
       if (currentQuestion < TOTAL_QUESTIONS) {
         setCurrentQuestion((prev) => prev + 1);
       } else {
-        setIsFinished(true); // ✅ Show result screen
+        setIsFinished(true);
       }
     }, 1000);
   };
 
+  // ✅ This resets the quiz state
+  const handleRetake = () => {
+    setScore(0);
+    setCurrentQuestion(1);
+    setIsFinished(false);
+  };
+
   const timerColor = timer > 20 ? "green" : timer > 10 ? "orange" : "red";
 
-  // ✅ Show result page after last question
+  // ✅ Show result screen when quiz ends
   if (isFinished) {
-    return <ResultScreen score={score} />;
+    return <ResultScreen score={score} onRetake={handleRetake} />;
   }
 
   return (

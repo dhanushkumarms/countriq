@@ -26,6 +26,7 @@
   white-space: nowrap;
   flex-shrink: 0;
   z-index: 2;
+  cursor: pointer;
 }
 
 .logo-img {
