@@ -4,6 +4,7 @@ import Header from "./components/Header"; // ✅ Import the header
 import HomePage from "./components/HomePage";
 import FlagFrenzy from "./components/FlagFrenzy";
 import CountryCrunch from "./components/CountryCrunch";
+import ResultScreen from "./components/ResultScreen";
 import "./App.css";
 
 const App: React.FC = () => {

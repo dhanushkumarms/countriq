@@ -1,6 +1,6 @@
-// src/components/FlagFrenzy.tsx
 import { useEffect, useState } from "react";
 import { countries } from "../data/countries";
+import ResultScreen from "./ResultScreen";
 import "../styles/FlagFrenzy.css";
 
 const TOTAL_QUESTIONS = 10;
@@ -12,6 +12,7 @@ const FlagFrenzy = () => {
   const [selected, setSelected] = useState<string | null>(null);
   const [timer, setTimer] = useState(30);
   const [score, setScore] = useState(0);
+  const [isFinished, setIsFinished] = useState(false); // ✅ New state
 
   // Generate new question
   const generateQuestion = () => {
@@ -43,7 +44,9 @@ const FlagFrenzy = () => {
 
   // Initialize or move to next question
   useEffect(() => {
-    generateQuestion();
+    if (currentQuestion <= TOTAL_QUESTIONS) {
+      generateQuestion();
+    }
   }, [currentQuestion]);
 
   // Determine button color class
@@ -67,19 +70,26 @@ const FlagFrenzy = () => {
       if (currentQuestion < TOTAL_QUESTIONS) {
         setCurrentQuestion((prev) => prev + 1);
       } else {
-        alert(`Game Over!\nYour score: ${score}/${TOTAL_QUESTIONS}`);
-        setCurrentQuestion(1);
-        setScore(0);
+        setIsFinished(true); // ✅ Show result screen
       }
     }, 1000);
   };
 
   const timerColor = timer > 20 ? "green" : timer > 10 ? "orange" : "red";
 
+  // ✅ Show result page after last question
+  if (isFinished) {
+    return <ResultScreen score={score} />;
+  }
+
   return (
     <div className="flag-frenzy-wrapper">
-      <div className="quiz-progress">Quiz {currentQuestion}/{TOTAL_QUESTIONS}</div>
-      <div className={`timer ${timerColor}`}>00:{timer.toString().padStart(2, "0")}</div>
+      <div className="quiz-progress">
+        Quiz {currentQuestion}/{TOTAL_QUESTIONS}
+      </div>
+      <div className={`timer ${timerColor}`}>
+        00:{timer.toString().padStart(2, "0")}
+      </div>
 
       <div className="flag-frenzy-container">
         <img
