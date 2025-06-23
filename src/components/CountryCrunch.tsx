@@ -3,58 +3,82 @@ import { countries } from "../data/countries";
 import "../styles/CountryCrunch.css";
 
 const TOTAL_SLOTS = 10;
-const TOTAL_TIME = 300; // 5 minutes in seconds
+const TOTAL_TIME = 300;
+
+// Display layout pattern: 1 2 / 4 3 / 5 6 / 8 7 / 9 10
+const layoutOrder = [0, 1, 3, 2, 4, 5, 7, 6, 8, 9]; // visual slot pattern
 
 const getRandomCountry = () => {
   const randomIndex = Math.floor(Math.random() * countries.length);
-  return countries[randomIndex].name;
+  return countries[randomIndex];
 };
 
 const CountryCrunch: React.FC = () => {
   const [chain, setChain] = useState<string[]>([]);
   const [input, setInput] = useState("");
   const [timer, setTimer] = useState(TOTAL_TIME);
-  const [status, setStatus] = useState<("pending" | "correct" | "wrong")[]>(Array(TOTAL_SLOTS).fill("pending"));
+  const [status, setStatus] = useState<("pending" | "correct" | "wrong" | "typing")[]>(
+    Array(TOTAL_SLOTS).fill("pending")
+  );
   const [startCountry, setStartCountry] = useState(getRandomCountry());
 
-  // Set first country when page loads
   useEffect(() => {
-    setChain([startCountry]);
+    setChain([startCountry.name]);
+    setStatus((prev) => {
+      const updated = [...prev];
+      updated[0] = "correct"; // start country always correct
+      return updated;
+    });
   }, [startCountry]);
 
-  // Timer countdown
   useEffect(() => {
     const interval = setInterval(() => {
       setTimer((prev) => (prev > 0 ? prev - 1 : 0));
     }, 1000);
-
     return () => clearInterval(interval);
   }, []);
 
+  const handleTyping = (value: string) => {
+    setInput(value);
+    if (chain.length < TOTAL_SLOTS) {
+      setStatus((prev) => {
+        const updated = [...prev];
+        updated[chain.length] = value ? "typing" : "pending";
+        return updated;
+      });
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (chain.length >= TOTAL_SLOTS) return;
+
     const current = chain[chain.length - 1];
     const lastChar = current?.slice(-1).toLowerCase();
-    const isValid = input.length > 0 &&
-      input[0].toLowerCase() === lastChar &&
-      countries.some((c) => c.name.toLowerCase() === input.toLowerCase()) &&
-      !chain.includes(input);
+    const guess = input.trim();
 
-    if (chain.length >= TOTAL_SLOTS + 1) return;
+    const isValid =
+      guess.length > 0 &&
+      guess[0].toLowerCase() === lastChar &&
+      countries.some((c) => c.name.toLowerCase() === guess.toLowerCase()) &&
+      !chain.includes(guess);
+
+    const newStatus = [...status];
 
     if (isValid) {
-      setChain([...chain, input]);
-      setStatus((prev) => {
-        const updated = [...prev];
-        updated[chain.length] = "correct";
-        return updated;
-      });
+      setChain([...chain, guess]);
+      newStatus[chain.length] = "correct";
+      setStatus(newStatus);
     } else {
-      setStatus((prev) => {
-        const updated = [...prev];
-        updated[chain.length] = "wrong";
-        return updated;
-      });
+      newStatus[chain.length] = "wrong";
+      setStatus(newStatus);
+      setTimeout(() => {
+        setStatus((prev) => {
+          const updated = [...prev];
+          if (updated[chain.length] === "wrong") updated[chain.length] = "pending";
+          return updated;
+        });
+      }, 1000);
     }
 
     setInput("");
@@ -65,24 +89,50 @@ const CountryCrunch: React.FC = () => {
 
   return (
     <div className="country-crunch-container">
-      <h2 className="title">🌍 Country Crunch Challenge</h2>
-      <p className="description">Continue the chain! Each country must start with the last letter of the previous one.</p>
+      <div className="header-space" />
+      <h2 className="title">🌍 Country Crunch</h2>
+      <p className="description">
+        Start with: <strong>{startCountry.name}</strong>{" "}
+        <img src={startCountry.flag} alt="flag" className="flag-icon" />
+        <br />
+        Type countries where the first letter matches the last of the previous one!
+      </p>
+
       <div className={`timer-box ${timerColor}`}>
-        {Math.floor(timer / 60)
-          .toString()
-          .padStart(2, "0")}
-        :
+        {Math.floor(timer / 60).toString().padStart(2, "0")}:
         {(timer % 60).toString().padStart(2, "0")}
       </div>
 
-      <div className="chain-grid">
-        {Array.from({ length: TOTAL_SLOTS }).map((_, index) => (
-          <div key={index} className={`slot ${status[index]}`}>
-            <span>{chain[index + 1] || ""}</span>
-            {status[index] === "correct" && <span className="tick">✅</span>}
-            {status[index] === "wrong" && <span className="tick wrong">❌</span>}
-          </div>
-        ))}
+      <div className="grid-wrapper">
+        {layoutOrder.map((slotIndex, visualIndex) => {
+          const value =
+            visualIndex === 0
+              ? startCountry.name
+              : visualIndex === chain.length
+              ? input
+              : chain[visualIndex] || "";
+
+          return (
+            <div
+              key={slotIndex}
+              className={`grid-box ${status[visualIndex]} box-${slotIndex}`}
+              data-pos={slotIndex}
+            >
+              {value}
+            </div>
+          );
+        })}
+
+        {chain.slice(1).map((_, i) => {
+          const from = layoutOrder[i];
+          const to = layoutOrder[i + 1];
+          return (
+            <div
+              key={i}
+              className={`chain-line line-${from}-${to}`}
+            />
+          );
+        })}
       </div>
 
       <form className="input-form" onSubmit={handleSubmit}>
@@ -90,7 +140,7 @@ const CountryCrunch: React.FC = () => {
           type="text"
           value={input}
           placeholder="Enter a country"
-          onChange={(e) => setInput(e.target.value)}
+          onChange={(e) => handleTyping(e.target.value)}
           className="country-input"
         />
         <button type="submit" className="submit-btn">Submit</button>

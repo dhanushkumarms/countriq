@@ -1,0 +1,52 @@
+.footer {
+    width: 100%;
+    position: fixed;
+    bottom:0;
+    left:0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3498db;
+    color: rgba(0, 0, 0);
+    font-weight: bold;
+    padding: 0.8rem 2rem; /* Same as header */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+  
+  .footer p {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .footer-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .footer-links a {
+    color: black;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #2c3e50;
+  }
+  
+  /* Dark mode support */
+  body.dark-mode .footer {
+    background-color: #111;
+    color: white;
+  }
+  
+  body.dark-mode .footer-links a {
+    color: white;
+  }
+  
+  body.dark-mode .footer-links a:hover {
+    color: #3498db;
+  }
+  
