@@ -10,7 +10,7 @@ const HomePage: React.FC = () => {
       
       <div className="game-container">
         
-        <h2 className="choose-text">🌍 Choose Your Challenge, Explorer! 🚀</h2>
+        <h2 className="choose-text">🚀Choose Your Challenge, Explorer!🌍</h2>
         <p className="pick-text">Pick your game below!</p>
 
         <div className="card-group">
@@ -20,9 +20,9 @@ const HomePage: React.FC = () => {
                 <img src="/ff.png" alt="Flag Frenzy" className="card-image" />
                 <h3 className="card-title">🏁 Flag Frenzy</h3>
               </div>
-              <div className="card-back">
-                <p>Test your knowledge of world flags. Guess the country from its flag. Fast-paced, fun, and addictive!</p>
-              </div>
+                <div className="card-back">
+                  <p>Test your knowledge of world flags. Guess the country from its flag. Fast-paced, fun, and addictive!</p>
+                </div>
             </div>
           </div>
 

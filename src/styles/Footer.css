@@ -7,7 +7,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #3498db;
+    background-color:#3498db;
     color: rgba(0, 0, 0);
     font-weight: bold;
     padding: 0.8rem 2rem; /* Same as header */
