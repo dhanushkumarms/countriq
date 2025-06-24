@@ -33,7 +33,7 @@
   }
   
   .footer-links a:hover {
-    color: #2c3e50;
+    color: #0025e8;
   }
   
   /* Dark mode support */
@@ -47,6 +47,6 @@
   }
   
   body.dark-mode .footer-links a:hover {
-    color: #3498db;
+    color: #0025e8;
   }
   

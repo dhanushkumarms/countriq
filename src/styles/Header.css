@@ -175,6 +175,11 @@ body.dark-mode .marquee-text {
   font-weight: bold;
 }
 
+body.dark-mode input:checked + .slider {
+  background-color: #0025e8; /* Bright blue when dark mode is active */
+}
+
+
 /* Responsive behavior */
 @media (max-width: 768px) {
   .header {
