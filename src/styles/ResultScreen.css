@@ -1,70 +1,107 @@
-.result-screen {
-    text-align: center;
-    padding: 3rem;
-    background-color: #f4faff;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    max-width: 420px;
-    margin: 80px auto;
-  }
-  
-  .score-text {
-    font-size: 1.6rem;
-    margin: 1rem 0;
-    color: #2e7d32;
-  }
-  
-  .retake-prompt {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-    color: #555;
-  }
-  
-  .celebration-emoji {
-    cursor: pointer;
-    transition: transform -0.2s ease;
-  }
-  
- 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
 
-  
-  .retake-btn {
-    background-color: #3498db;
-    color: white;
-    font-weight: bold;
-    border: none;
-    padding: 0.8rem 1.6rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .retake-btn:hover {
-    background-color: #2980b9;
-  }
-  
-  .button-group {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  
-  .retake-btn,
-  .home-btn {
-    background-color: #3498db;
-    color: white;
-    font-weight: bold;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    font-size: 1rem;
-  }
-  
-  .retake-btn:hover,
-  .home-btn:hover {
-    background-color: #2980b9;
-  }
-  
+.result-screen {
+  text-align: center;
+  padding: 3rem;
+  background-color: #f4faff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  max-width: 420px;
+  margin: 80px auto;
+  color: #000;
+  position: relative;
+  z-index: 1;
+}
+
+body.dark-mode {
+  background-color: #222;
+  color: #fff;
+}
+
+body.dark-mode::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #222;
+  z-index: 0;
+}
+
+body.dark-mode .result-screen {
+  background-color: #ffffff;
+  color: #fff;
+}
+
+.score-text {
+  font-size: 1.6rem;
+  margin: 1rem 0;
+  color: #2e7d32;
+}
+
+.retake-prompt {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: black;
+}
+
+body.dark-mode .retake-prompt {
+  color: black;
+}
+
+.celebration-emoji {
+  cursor: pointer;
+  transition: transform -0.2s ease;
+}
+
+.score-text.low-score {
+  color: #f44336;
+}
+.retake-btn,
+.home-btn {
+  background-color: #e6e6e6;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 1rem;
+}
+
+body.dark-mode .retake-btn,
+body.dark-mode .home-btn {
+  background-color: #444;
+  color: white;
+}
+
+.retake-btn:hover,
+.home-btn:hover {
+  background-color: #ccc;
+}
+
+body.dark-mode .retake-btn:hover,
+body.dark-mode .home-btn:hover {
+  background-color: #555;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+h2 {
+  color: #000;
+}
+
+body.dark-mode h2 {
+  color: #fff;
+}

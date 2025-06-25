@@ -20,7 +20,7 @@ const ResultScreen: React.FC<ResultProps> = ({ score, onRetake }) => {
           origin: { y: 0.3 },
           gravity: 0.3,   // Lower gravity = slower fall (default is ~1)
           decay: 0.8,
-          ticks: 200      // Closer to 1 = confetti stays longer before vanishing
+          ticks: 100     // Closer to 1 = confetti stays longer before vanishing
         });
       }, i * 400);
     }
@@ -44,7 +44,9 @@ const ResultScreen: React.FC<ResultProps> = ({ score, onRetake }) => {
         </span>
         Quiz Completed!
       </h2>
-      <p className="score-text">You scored <strong>{score}/10</strong></p>
+      <p className={`score-text ${score <= 5 ? "low-score" : ""}`}>
+        You scored <strong>{score}/10</strong>
+      </p>
       <p className="retake-prompt">Think you can beat your score? Let’s give it another go! 🌍</p>
 
       <div className="button-group">

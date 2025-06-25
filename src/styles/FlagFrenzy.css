@@ -6,6 +6,10 @@ body, html {
   background-color: #ffffff;
 }
 
+body.dark-mode, body.dark-mode html {
+  background-color: #222;
+}
+
 /* Main wrapper that truly centers the content */
 .flag-frenzy-wrapper {
   display: flex;
@@ -16,8 +20,12 @@ body, html {
   position: relative;
   padding-top: 80px; /* Add padding equal to header height */
   box-sizing: border-box;
+  background-color: #ffffff;
 }
 
+body.dark-mode .flag-frenzy-wrapper {
+  background-color: #222;
+}
 
 /* Centered Quiz Container */
 .flag-frenzy-container {
@@ -30,12 +38,18 @@ body, html {
   text-align: center;
   z-index: 1;
   position: relative;
+  color: #000;
+}
+
+body.dark-mode .flag-frenzy-container {
+  background: #fff;
+  color: #000;
 }
 
 /* Quiz progress */
 .quiz-progress {
   position: absolute;
-  top: 30px;
+  top: 50px;
   font-weight: bold;
   font-size: 1.2rem;
   left: 50%;
@@ -44,11 +58,15 @@ body, html {
   z-index: 2;
 }
 
+body.dark-mode .quiz-progress {
+  color: #ddd;
+}
+
 /* Timer in top-right */
 .timer {
   position: absolute;
-  top: 20px;
-  right: 30px;
+  top: 50px;
+  right: 450px;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -106,20 +124,29 @@ body, html {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+body.dark-mode .option-btn {
+  background-color: #ddd;
+  color: #000;
+}
+
 .option-btn:hover {
   background-color: #cce0ff;
 }
 
+body.dark-mode .option-btn:hover {
+  background-color: #bbb;
+}
+
+/* Correct & Wrong States - Always show */
 .option-btn.correct {
-  background-color: #4caf50;
-  color: white;
+  background-color: #4caf50 !important;
+  color: white !important;
 }
 
 .option-btn.wrong {
-  background-color: #f44336;
-  color: white;
+  background-color: #f44336 !important;
+  color: white !important;
 }
-
 
 @media (max-width: 768px) {
   .flag-frenzy-wrapper {
@@ -130,4 +157,3 @@ body, html {
     align-items: center;
   }
 }
-
