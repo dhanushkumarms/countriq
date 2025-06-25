@@ -20,7 +20,7 @@ body.dark-mode, body.dark-mode html {
   position: relative;
   padding-top: 80px; /* Add padding equal to header height */
   box-sizing: border-box;
-  background-color: #ffffff;
+  background-color: white;
 }
 
 body.dark-mode .flag-frenzy-wrapper {

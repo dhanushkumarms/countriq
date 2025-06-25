@@ -5,8 +5,7 @@ import "../styles/CountryCrunch.css";
 const TOTAL_SLOTS = 10;
 const TOTAL_TIME = 300;
 
-// Display layout pattern: 1 2 / 4 3 / 5 6 / 8 7 / 9 10
-const layoutOrder = [0, 1, 3, 2, 4, 5, 7, 6, 8, 9]; // visual slot pattern
+const layoutOrder = [0, 1, 3, 2, 4, 5, 7, 6, 8, 9];
 
 const getRandomCountry = () => {
   const randomIndex = Math.floor(Math.random() * countries.length);
@@ -26,7 +25,7 @@ const CountryCrunch: React.FC = () => {
     setChain([startCountry.name]);
     setStatus((prev) => {
       const updated = [...prev];
-      updated[0] = "correct"; // start country always correct
+      updated[0] = "correct";
       return updated;
     });
   }, [startCountry]);
@@ -84,68 +83,75 @@ const CountryCrunch: React.FC = () => {
     setInput("");
   };
 
-  const timerColor =
-    timer > 180 ? "green" : timer > 60 ? "orange" : "red";
+  const timerColor = timer > 180 ? "green" : timer > 60 ? "orange" : "red";
 
   return (
-    <div className="country-crunch-container">
-      <div className="header-space" />
-      <h2 className="title">🌍 Country Crunch</h2>
-      <p className="description">
-        Start with: <strong>{startCountry.name}</strong>{" "}
-        <img src={startCountry.flag} alt="flag" className="flag-icon" />
-        <br />
-        Type countries where the first letter matches the last of the previous one!
-      </p>
+    <div className="country-crunch-wrapper">
+      <div className="country-crunch-container">
+        <div className="header-space" />
+        <h2 className="title">🌍 Country Crunch</h2>
+        <p className="description">
+          Start with: <strong>{startCountry.name}</strong>{" "}
+          <img src={startCountry.flag} alt="flag" className="flag-icon" />
+          <br />
+          Type countries where the first letter matches the last of the previous one!
+        </p>
 
-      <div className={`timer-box ${timerColor}`}>
-        {Math.floor(timer / 60).toString().padStart(2, "0")}:
-        {(timer % 60).toString().padStart(2, "0")}
-      </div>
+        <div className={`timer-box ${timerColor}`}>
+          {Math.floor(timer / 60).toString().padStart(2, "0")}:
+          {(timer % 60).toString().padStart(2, "0")}
+        </div>
 
-      <div className="grid-wrapper">
-        {layoutOrder.map((slotIndex, visualIndex) => {
-          const value =
-            visualIndex === 0
-              ? startCountry.name
-              : visualIndex === chain.length
-              ? input
-              : chain[visualIndex] || "";
+        {/* Side-by-side containers */}
+        <div className="cc-main-section">
+          <div className="grid-container">
+            <div className="grid-wrapper">
+              {layoutOrder.map((slotIndex, visualIndex) => {
+                const value =
+                  visualIndex === 0
+                    ? startCountry.name
+                    : visualIndex === chain.length
+                    ? input
+                    : chain[visualIndex] || "";
 
-          return (
-            <div
-              key={slotIndex}
-              className={`grid-box ${status[visualIndex]} box-${slotIndex}`}
-              data-pos={slotIndex}
-            >
-              {value}
+                return (
+                  <div
+                    key={slotIndex}
+                    className={`grid-box ${status[visualIndex]} box-${slotIndex}`}
+                    data-pos={slotIndex}
+                  >
+                    {value}
+                  </div>
+                );
+              })}
+
+              {chain.slice(1).map((_, i) => {
+                const from = layoutOrder[i];
+                const to = layoutOrder[i + 1];
+                return (
+                  <div key={i} className={`chain-line line-${from}-${to}`} />
+                );
+              })}
             </div>
-          );
-        })}
+          </div>
 
-        {chain.slice(1).map((_, i) => {
-          const from = layoutOrder[i];
-          const to = layoutOrder[i + 1];
-          return (
-            <div
-              key={i}
-              className={`chain-line line-${from}-${to}`}
-            />
-          );
-        })}
+          <div className="input-container">
+            <form className="input-form" onSubmit={handleSubmit}>
+              <input
+                type="text"
+                value={input}
+                placeholder="Enter a country"
+                onChange={(e) => handleTyping(e.target.value)}
+                className="country-input"
+              />
+              <button type="submit" className="submit-btn">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
-
-      <form className="input-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={input}
-          placeholder="Enter a country"
-          onChange={(e) => handleTyping(e.target.value)}
-          className="country-input"
-        />
-        <button type="submit" className="submit-btn">Submit</button>
-      </form>
-    </div>
+    </div>  
   );
 };
 
