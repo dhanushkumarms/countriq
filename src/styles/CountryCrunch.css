@@ -66,6 +66,7 @@ body.dark-mode .country-crunch-wrapper {
   align-items: center;
   overflow: hidden;
   text-align: center;
+  z-index: 0;
 }
 
 

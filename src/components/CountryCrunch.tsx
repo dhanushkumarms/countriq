@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { countries } from "../data/countries";
 import "../styles/CountryCrunch.css";
+import confetti from "canvas-confetti";
 
 const TOTAL_SLOTS = 10;
 const TOTAL_TIME = 300;
@@ -37,6 +38,23 @@ const CountryCrunch: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const launchConfetti = () => {
+    const container = document.querySelector(".country-crunch-container") as HTMLElement;
+    if (!container) return;
+
+    const rect = container.getBoundingClientRect();
+
+    confetti({
+      particleCount: 300,
+      spread: 70,
+      origin: {
+        x: (rect.left + rect.width / 2) / window.innerWidth,
+        y: (rect.top + rect.height / 2) / window.innerHeight,
+      },
+      zIndex: 9999,
+    });
+  };
+
   const handleTyping = (value: string) => {
     setInput(value);
     if (chain.length < TOTAL_SLOTS) {
@@ -65,9 +83,14 @@ const CountryCrunch: React.FC = () => {
     const newStatus = [...status];
 
     if (isValid) {
-      setChain([...chain, guess]);
+      const updatedChain = [...chain, guess];
+      setChain(updatedChain);
       newStatus[chain.length] = "correct";
       setStatus(newStatus);
+
+      if (updatedChain.length === TOTAL_SLOTS) {
+        launchConfetti();
+      }
     } else {
       newStatus[chain.length] = "wrong";
       setStatus(newStatus);
@@ -89,21 +112,19 @@ const CountryCrunch: React.FC = () => {
     <div className="country-crunch-wrapper">
       <div className={`country-crunch-container ${chain.length === TOTAL_SLOTS ? "completed" : ""}`}>
         <div className="header-space" />
-          <h2 className="title">🌍 Country Crunch</h2>
-          <p className="description">
-            Start with: <strong>{startCountry.name}</strong>{" "}
-            <img src={startCountry.flag} alt="flag" className="flag-icon" />
-            <br />
-            Type countries where the first letter matches the last of the previous one!
-          </p>
-        
+        <h2 className="title">🌍 Country Crunch</h2>
+        <p className="description">
+          Start with: <strong>{startCountry.name}</strong>{" "}
+          <img src={startCountry.flag} alt="flag" className="flag-icon" />
+          <br />
+          Type countries where the first letter matches the last of the previous one!
+        </p>
 
         <div className={`timer-box ${timerColor}`}>
           {Math.floor(timer / 60).toString().padStart(2, "0")}:
           {(timer % 60).toString().padStart(2, "0")}
         </div>
 
-        {/* Side-by-side containers */}
         <div className="cc-main-section">
           <div className="grid-container">
             <div className="grid-wrapper">
@@ -152,7 +173,7 @@ const CountryCrunch: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>  
+    </div>
   );
 };
 
