@@ -20,6 +20,14 @@
     color: #555;
   }
   
+  .celebration-emoji {
+    cursor: pointer;
+    transition: transform -0.2s ease;
+  }
+  
+ 
+
+  
   .retake-btn {
     background-color: #3498db;
     color: white;
