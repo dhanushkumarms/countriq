@@ -87,7 +87,7 @@ const CountryCrunch: React.FC = () => {
 
   return (
     <div className="country-crunch-wrapper">
-      <div className="country-crunch-container">
+      <div className={`country-crunch-container ${chain.length === TOTAL_SLOTS ? "completed" : ""}`}>
         <div className="header-space" />
           <h2 className="title">🌍 Country Crunch</h2>
           <p className="description">
