@@ -56,7 +56,7 @@ body.dark-mode .country-crunch-wrapper {
 .country-crunch-container {
   background: #fff;
   padding: 1.5rem;
-  max-width: 900px;       /* Increased width for long texts */
+  max-width: 900px;
   width: 95%;
   max-height: 100%;
   height: auto;
@@ -119,20 +119,20 @@ body.dark-mode .description{
 /* Main Game Section */
 .cc-main-section {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   gap: 2rem;
-  flex-wrap: wrap;
   margin-top: 2rem;
 }
 
 .grid-container {
-  flex: 1;
-  min-width: 300px;
+  width: 100%;
+  max-width: 600px;
 }
 
 .input-container {
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -141,6 +141,7 @@ body.dark-mode .description{
   flex-direction: column;
   gap: 0.75rem;
   align-items: center;
+  width: 100%;
 }
 
 .country-input {
@@ -170,16 +171,18 @@ body.dark-mode .description{
 .grid-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 15px 30px; /* Tighter spacing */
+  gap: 15px 30px;
   margin-bottom: 1rem;
   position: relative;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 .grid-box {
   background: white;
   border: 2px solid #ccc;
   padding: 0.8rem;
-  height: 50px; /* Reduced height */
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -211,9 +214,6 @@ body.dark-mode .description{
   border: 2px dashed #3498db;
   color: #3498db;
 }
-
-/* Optional: connection lines if you use them */
-
 
 /* Responsive */
 @media (max-width: 768px) {
