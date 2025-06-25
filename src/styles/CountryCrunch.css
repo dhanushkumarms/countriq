@@ -42,10 +42,8 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
   overflow: hidden;
-  padding: 1rem;
-  background-color: #ffffff;
-  flex-wrap: wrap;
 }
 
 body.dark-mode .country-crunch-wrapper {
@@ -54,22 +52,22 @@ body.dark-mode .country-crunch-wrapper {
 
 /* CountryCrunch Container */
 .country-crunch-container {
-  background: #fff;
-  padding: 1.5rem;
-  max-width: 900px;       /* Increased width for long texts */
-  width: 95%;
-  max-height: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  z-index: 1;
-  position: relative;
-  color: #000;
+  width: 800px;
+  max-width: 95%;
+  height: 90%;  /* <==== FIXED HEIGHT relative to wrapper */
+  max-height: 90%;
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
 }
+
 
 body.dark-mode .country-crunch-container {
   background: #424242;
@@ -109,7 +107,8 @@ body.dark-mode .description{
   padding: 0.4rem 1rem;
   border-radius: 10px;
   color: white;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0rem;
+  width: 500px;
 }
 
 .timer-box.green { background-color: green; }
@@ -123,12 +122,12 @@ body.dark-mode .description{
   align-items: flex-start;
   gap: 2rem;
   flex-wrap: wrap;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .grid-container {
   flex: 1;
-  min-width: 300px;
+  min-width: 400px;
 }
 
 .input-container {

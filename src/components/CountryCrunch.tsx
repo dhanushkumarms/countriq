@@ -89,13 +89,14 @@ const CountryCrunch: React.FC = () => {
     <div className="country-crunch-wrapper">
       <div className="country-crunch-container">
         <div className="header-space" />
-        <h2 className="title">🌍 Country Crunch</h2>
-        <p className="description">
-          Start with: <strong>{startCountry.name}</strong>{" "}
-          <img src={startCountry.flag} alt="flag" className="flag-icon" />
-          <br />
-          Type countries where the first letter matches the last of the previous one!
-        </p>
+          <h2 className="title">🌍 Country Crunch</h2>
+          <p className="description">
+            Start with: <strong>{startCountry.name}</strong>{" "}
+            <img src={startCountry.flag} alt="flag" className="flag-icon" />
+            <br />
+            Type countries where the first letter matches the last of the previous one!
+          </p>
+        
 
         <div className={`timer-box ${timerColor}`}>
           {Math.floor(timer / 60).toString().padStart(2, "0")}:
