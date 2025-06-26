@@ -20,7 +20,7 @@ const CountryCrunch: React.FC = () => {
   const [status, setStatus] = useState<("pending" | "correct" | "wrong" | "typing")[]>(
     Array(TOTAL_SLOTS).fill("pending")
   );
-  const [startCountry, setStartCountry] = useState(getRandomCountry());
+  const [startCountry] = useState(getRandomCountry());
 
   useEffect(() => {
     setChain([startCountry.name]);
