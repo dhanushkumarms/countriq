@@ -12,7 +12,7 @@
   background-color: #3498db;
   color: rgb(0, 0, 0);
   font-weight: bold; /* ✅ Correct bold text */
-  padding: 0.8rem 2rem;
+  padding: 0.2rem 2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   flex-wrap: nowrap;
   overflow: hidden;

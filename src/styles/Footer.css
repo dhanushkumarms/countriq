@@ -10,7 +10,7 @@
     background-color:#3498db;
     color: rgba(0, 0, 0);
     font-weight: bold;
-    padding: 0.8rem 2rem; /* Same as header */
+    padding: 1.8rem 2rem; /* Same as header */
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
     flex-wrap: nowrap;
     overflow: hidden;
