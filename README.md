@@ -6,7 +6,7 @@ Welcome to **countriQ**, an engaging, interactive quiz platform designed to test
 
 ## 🚀 Live Demo
 
-[🔗 https://countriq.netlify.app](countrIQ)
+[**countriQ**](https://countriq.netlify.app)
 
 ---
 
@@ -38,20 +38,20 @@ Welcome to **countriQ**, an engaging, interactive quiz platform designed to test
 - Minimalist design for a smooth user experience  
 
 **Hosting:**  
-- [Vercel](https://vercel.com) — Lightning-fast frontend deployment  
+- [Netlify](https://www.netlify.com) — Fast and reliable static site deployment  
 
 ---
 
 ## 🚀 Deployment
 
-The project is deployed using [Vercel](https://www.vercel.com) for easy, fast, and reliable static site hosting.  
+The project is deployed using [Netlify](https://www.netlify.com) for easy, fast, and reliable hosting.  
 
 ---
 
 ## 🙏 Acknowledgements
-- [Vercel](https://vercel.com) & [Netlify](https://www.netlify.com) — Free hosting platforms  
-- [OpenAI ChatGPT](https://openai.com/chatgpt) — Assisting in project documentation  
 
+- [Netlify](https://www.netlify.com) — Free hosting platform  
+  
 ---
 
 ## 🌍 Play. Learn. Master the World with CountriQ!
