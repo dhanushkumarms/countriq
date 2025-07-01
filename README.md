@@ -1,69 +1,46 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# countriQ - The Ultimate Country Quiz Platform!
 
-Currently, two official plugins are available:
+Welcome to CountriQ, an engaging, interactive quiz platform designed to test your knowledge of countries and their flags! Whether you're a geography enthusiast or just looking for a fun challenge, CountriQ offers two exciting game modes to keep you hooked.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Live Demo
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+    https://countriq.netlify.app/
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Game Modes
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+    🎌 Flag Frenzy!
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    Guess the country name by looking at its flag — but hurry, you only have 30 seconds for each question!
+    A fast-paced, flag-identification challenge to sharpen your global awareness.
+
+    🌐 Country Crunch!
+    
+    It's a battle of wits with our chatbot!
+    Name a country that starts with the last letter of the previous country's name.
+    No time limit — just pure strategic fun!
+## 🛠️ Tech Stack
+
+Frontend:
+
+    HTML, CSS, JavaScript 
+
+    Responsive, modern UI
+
+    Minimalist design for a smooth user experience
+
+Hosting:
+
+    Vercel — Lightning-fast frontend deployment
+##  Key Features
+
+    ✅ Two unique quiz experiences in one platform
+    ✅ Flag database for hundreds of countries
+    ✅ Interactive chatbot for text-based gameplay
+    ✅ Clean, mobile-friendly design
+    ✅ Smooth navigation and feedback messages
+    ✅ Built with scalability in mind
