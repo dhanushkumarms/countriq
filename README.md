@@ -6,7 +6,7 @@ Welcome to **countriQ**, an engaging, interactive quiz platform designed to test
 
 ## 🚀 Live Demo
 
-[**countriQ**](https://countriq.netlify.app)
+[**countriq.netlify.app**](https://countriq.netlify.app)
 
 ---
 
