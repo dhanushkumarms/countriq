@@ -34,7 +34,7 @@ Welcome to **countriQ**, an engaging, interactive quiz platform designed to test
 
 **Frontend:**  
 - HTML, CSS, JavaScript  
-- Responsive, modern UI  
+- Modern UI  
 - Minimalist design for a smooth user experience  
 
 **Hosting:**  
