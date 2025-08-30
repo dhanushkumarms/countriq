@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/CountryCrunch.tsx","./src/components/FlagFrenzy.tsx","./src/components/Footer.tsx","./src/components/Header.tsx","./src/components/HomePage.tsx","./src/components/ResultScreen.tsx","./src/components/Timer.tsx","./src/data/countries.ts"],"version":"5.8.3"}
