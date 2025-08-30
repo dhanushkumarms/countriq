@@ -1,6 +1,7 @@
 # 🌍 countriQ - The Ultimate Country Quiz Platform!
 
 Welcome to **countriQ**, an engaging, interactive quiz platform designed to test your knowledge of countries and their flags! Whether you're a geography enthusiast or just looking for a fun challenge, CountriQ offers two exciting game modes to keep you hooked.
+
 ---
 
 <p align="center">
