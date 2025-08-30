@@ -16,9 +16,7 @@ Welcome to **countriQ**, an engaging, interactive quiz platform designed to test
 
 ## 🛠️ Tech Stack
 
-![HTML](https://img.shields.io/badge/HTML-HTML-orange?style=for-the-badge&logo=html5&logoColor=orange)  
-![CSS](https://img.shields.io/badge/CSS-CSS-blue?style=for-the-badge&logo=css3&logoColor=blue)  
-![JavaScript](https://img.shields.io/badge/JavaScript-JS-yellow?style=for-the-badge&logo=javascript&logoColor=yellow)  
+![HTML](https://img.shields.io/badge/HTML-HTML-orange?style=for-the-badge&logo=html5&logoColor=orange)  ![CSS](https://img.shields.io/badge/CSS-CSS-blue?style=for-the-badge&logo=css3&logoColor=blue) ![JavaScript](https://img.shields.io/badge/JavaScript-JS-yellow?style=for-the-badge&logo=javascript&logoColor=yellow)   
 ![React](https://img.shields.io/badge/React-JS_Library-61DBFB?style=for-the-badge&logo=react&logoColor=61DBFB)  
 ![TypeScript](https://img.shields.io/badge/TypeScript-TS-3178C6?style=for-the-badge&logo=typescript&logoColor=3178C6)  
 ![Vite](https://img.shields.io/badge/Vite-Bundler-646CFF?style=for-the-badge&logo=vite&logoColor=646CFF)  
