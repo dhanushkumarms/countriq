@@ -1,7 +1,11 @@
 # 🌍 countriQ - The Ultimate Country Quiz Platform!
 
 Welcome to **countriQ**, an engaging, interactive quiz platform designed to test your knowledge of countries and their flags! Whether you're a geography enthusiast or just looking for a fun challenge, CountriQ offers two exciting game modes to keep you hooked.
+---
 
+<p align="center">
+  <img src="countriq_ss/cq_logo.png" alt="CountrIQ Logo" width="800"/>
+</p>
 ---
 
 ## 🚀 Live Demo
@@ -12,13 +16,14 @@ Welcome to **countriQ**, an engaging, interactive quiz platform designed to test
 
 ## 🛠️ Tech Stack
 
-![HTML](https://img.shields.io/badge/HTML-orange?style=for-the-badge&logo=html5)
-![CSS](https://img.shields.io/badge/CSS-blue?style=for-the-badge&logo=css3)
-![JavaScript](https://img.shields.io/badge/JavaScript-yellow?style=for-the-badge&logo=javascript)
-![React](https://img.shields.io/badge/React-61DBFB?style=for-the-badge&logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite)
-![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify)
+![HTML](https://img.shields.io/badge/HTML-HTML-orange?style=for-the-badge&logo=html5&logoColor=orange)  
+![CSS](https://img.shields.io/badge/CSS-CSS-blue?style=for-the-badge&logo=css3&logoColor=blue)  
+![JavaScript](https://img.shields.io/badge/JavaScript-JS-yellow?style=for-the-badge&logo=javascript&logoColor=yellow)  
+![React](https://img.shields.io/badge/React-JS_Library-61DBFB?style=for-the-badge&logo=react&logoColor=61DBFB)  
+![TypeScript](https://img.shields.io/badge/TypeScript-TS-3178C6?style=for-the-badge&logo=typescript&logoColor=3178C6)  
+![Vite](https://img.shields.io/badge/Vite-Bundler-646CFF?style=for-the-badge&logo=vite&logoColor=646CFF)  
+![Netlify](https://img.shields.io/badge/Netlify-Hosting-00C7B7?style=for-the-badge&logo=netlify&logoColor=00C7B7)  
+![GitHub](https://img.shields.io/badge/GitHub-Code-black?style=for-the-badge&logo=github&logoColor=white)
 
 ---
 
@@ -46,9 +51,9 @@ Welcome to **countriQ**, an engaging, interactive quiz platform designed to test
 
 <div align="center">
 
-| ![Landing Page](screenshots/landingpage.png) | ![Login Page](screenshots/login_page.png) | ![Create Request](screenshots/create_request.png) |
+| ![Landing Page- Light Mode](countriq_ss/lightmode.png) | ![Landing Page - Dark Mode](countriq_ss/darkmode.png) | ![Flag Frenzy](countriq_ss/ff_start.png) |
 |---------------------------------------------|---------------------------------------------|-----------------------------------------------|
-| ![Map Availability](screenshots/map_availability.png) | ![Active Requests](screenshots/active_requests.png) | ![Current Service](screenshots/current_service.png) |
+| ![Flag Frenzy](countriq_ss/ff_finished.png) | ![Country Crunch](countriq_ss/cc_start.png) | ![Country Crunch](countriq_ss/cc_finished.png) |
 
 </div>
 
